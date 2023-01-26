@@ -7,8 +7,7 @@ import {
   IconExampleForOverlayBasedOnImageBaseSize,
   IconExampleForFallbackBasedOnImageBaseSize,
   IconExampleForBadgeBasedOnImageBaseSize,
-} from '../packages/vkui/src/testing/icons';
-import * as Icons from '@vkontakte/icons';
+} from '@vkui/testing/icons';
 import {
   getRandomInt,
   getRandomUser,
@@ -16,8 +15,9 @@ import {
   getAllUsers,
   importantCountries,
   getAvatarUrl,
-  perfLogger,
-} from './utils';
+} from '@vkui/testing/mock';
+import * as Icons from '@vkontakte/icons';
+import { perfLogger } from './utils';
 
 const unstablePrefix = 'unstable_';
 const ui = { ...VKUI };
