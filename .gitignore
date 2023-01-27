@@ -19,6 +19,9 @@ e2e-results.json
 .cache
 tmp/
 
+# SWC
+.swc
+
 # Coverage directory used by tools like istanbul
 coverage
 
