@@ -54,7 +54,7 @@ export const Chip = ({
     },
     [onRemove, value],
   );
-  const title = getTitleFromChildren(children);
+  const removeLabel = `${removeAriaLabel} ${getTitleFromChildren(children)}`;
 
   return (
     <div
@@ -80,7 +80,7 @@ export const Chip = ({
             onClick={onRemoveWrapper}
             hasHover={false}
             hasActive={false}
-            aria-label={`${removeAriaLabel} ${title}`}
+            aria-label={removeLabel}
           >
             <Icon16Cancel aria-hidden />
           </Tappable>
