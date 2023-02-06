@@ -64,13 +64,11 @@ export const Chip = ({
         removable && styles['Chip--removable'],
         className,
       )}
-      role="option"
-      aria-label={title}
       {...restProps}
     >
-      <div className={styles['Chip__in']} role="presentation">
+      <div className={styles['Chip__in']} role="row">
         {hasReactNode(before) && <div className={styles['Chip__before']}>{before}</div>}
-        <Footnote className={styles['Chip__content']} title={title} aria-hidden>
+        <Footnote className={styles['Chip__content']} role="gridcell">
           {children}
         </Footnote>
         {hasReactNode(after) && <div className={styles['Chip__after']}>{after}</div>}
@@ -84,7 +82,7 @@ export const Chip = ({
             hasActive={false}
             aria-label={`${removeAriaLabel} ${title}`}
           >
-            <Icon16Cancel />
+            <Icon16Cancel aria-hidden />
           </Tappable>
         )}
       </div>

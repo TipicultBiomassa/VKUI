@@ -138,7 +138,7 @@ export const ChipsInputBase = <Option extends ChipOption>(props: ChipsInputBaseP
   return (
     <div
       onClick={handleClick}
-      role="presentation"
+      role="grid"
       style={style}
       className={classNames(
         styles['ChipsInputBase'],
