@@ -144,6 +144,7 @@ export const ChipsInputBase = <Option extends ChipOption>(props: ChipsInputBaseP
     <div
       onClick={handleClick}
       role="grid"
+      aria-label={inputAriaLabel}
       style={style}
       className={classNames(
         styles['ChipsInputBase'],
