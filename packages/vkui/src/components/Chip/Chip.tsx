@@ -66,7 +66,13 @@ export const Chip = ({
       )}
       {...restProps}
     >
-      <div className={styles['Chip__in']} role="row">
+      <Tappable
+        Component="div"
+        className={styles['Chip__in']}
+        hasHover={false}
+        hasActive={false}
+        role="row"
+      >
         {hasReactNode(before) && <div className={styles['Chip__before']}>{before}</div>}
         <Footnote className={styles['Chip__content']} role="gridcell">
           {children}
@@ -85,7 +91,7 @@ export const Chip = ({
             <Icon16Cancel aria-hidden />
           </Tappable>
         )}
-      </div>
+      </Tappable>
     </div>
   );
 };
