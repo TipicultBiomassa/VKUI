@@ -24,6 +24,7 @@ export enum Keys {
   ARROW_LEFT = 'ArrowLeft',
   ARROW_RIGHT = 'ArrowRight',
   ARROW_DOWN = 'ArrowDown',
+  BACKSPACE = 'Backspace',
 }
 
 interface AccessibleKey {
@@ -77,6 +78,11 @@ const ACCESSIBLE_KEYS: AccessibleKey[] = [
     code: Keys.ARROW_DOWN,
     key: ['ArrowDown'],
     keyCode: 40,
+  },
+  {
+    code: Keys.BACKSPACE,
+    key: ['Backspace'],
+    keyCode: 8,
   },
 ];
 
