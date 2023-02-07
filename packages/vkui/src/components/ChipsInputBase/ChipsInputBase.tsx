@@ -2,6 +2,7 @@ import * as React from 'react';
 import { getSizeYClassName } from '../../helpers/getSizeYClassName';
 import { HasAlign, HasRef, HasRootRef } from '../../types';
 import { classNames, noop } from '@vkontakte/vkjs';
+import { Keys, pressedKey } from '../../lib/accessibility';
 import { Chip, ChipOption, ChipValue, RenderChip } from '../Chip/Chip';
 import { useChipsInput } from '../../hooks/useChipsInput';
 import { useAdaptivity } from '../../hooks/useAdaptivity';
@@ -93,14 +94,18 @@ export const ChipsInputBase = <Option extends ChipOption>(props: ChipsInputBaseP
 
     onKeyDown!(e);
 
-    if (e.key === 'Backspace' && !e.defaultPrevented && !fieldValue && selectedOptions.length) {
-      removeOption(getOptionValue!(selectedOptions[selectedOptions.length - 1]));
-      e.preventDefault();
-    }
+    if (!e.defaultPrevented) {
+      const PRESSED_KEY = pressedKey(e);
 
-    if (e.key === 'Enter' && !e.defaultPrevented && fieldValue) {
-      addOptionFromInput();
-      e.preventDefault();
+      if (PRESSED_KEY === Keys.BACKSPACE && !fieldValue && selectedOptions.length) {
+        removeOption(getOptionValue!(selectedOptions[selectedOptions.length - 1]));
+        e.preventDefault();
+      }
+
+      if (PRESSED_KEY === Keys.ENTER && fieldValue) {
+        addOptionFromInput();
+        e.preventDefault();
+      }
     }
   };
 
