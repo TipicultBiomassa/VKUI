@@ -4,8 +4,10 @@ const chalk = require('chalk');
 const { VKUI_PACKAGE } = require('../shared');
 const { canRunTests, useDocker } = require('./detectEnv');
 
-const config = JSON.parse(fs.readFileSync(path.join(__dirname, '../vkui/package.swcrc'), 'utf-8'));
-config.exclude = [];
+const swcConfig = JSON.parse(
+  fs.readFileSync(path.join(__dirname, `../${VKUI_PACKAGE.PATHS.SRC_DIR}/package.swcrc`), 'utf-8'),
+);
+swcConfig.exclude = [];
 
 const BROWSER = process.env.BROWSER ?? 'chromium';
 const PLATFORM = process.env.PLATFORM ?? 'vkcom';
@@ -45,7 +47,7 @@ if (useDocker) {
 
 const config = {
   transform: {
-    '^.+\\.(t|j)sx?$': ['@swc/jest', { ...config }],
+    '^.+\\.(t|j)sx?$': ['@swc/jest', { ...swcConfig }],
   },
   displayName: 'e2e',
   rootDir: path.join(__dirname, `../${VKUI_PACKAGE.PATHS.SRC_DIR}`),
