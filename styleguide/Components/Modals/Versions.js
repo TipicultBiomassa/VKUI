@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleCell } from '@vkui';
+import { SimpleCell, ModalPage, ModalPageHeader, Div, PanelSpinner } from '@vkui';
 import { useFetch } from './useFetch';
 
 export function Versions({ id }) {
