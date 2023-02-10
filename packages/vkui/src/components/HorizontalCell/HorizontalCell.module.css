@@ -13,6 +13,11 @@
   font-family: inherit;
 }
 
+/* Перебиваем селектор в Tappable--sizeX-(compact|none) */
+.HorizontalCell .HorizontalCell__body {
+  border-radius: var(--vkui--size_border_radius--regular);
+}
+
 .HorizontalCell__content {
   color: var(--vkui--color_text_primary);
   word-break: break-all;
@@ -63,9 +68,19 @@
   min-width: 10px;
 }
 
+.HorizontalCell--ios:first-child::before,
+.HorizontalCell--ios:last-child::after {
+  min-width: 6px;
+}
+
 .HorizontalCell--size-s:first-child::before,
 .HorizontalCell--size-s:last-child::after {
   min-width: 8px;
+}
+
+.HorizontalCell--ios.HorizontalCell--size-s:first-child::before,
+.HorizontalCell--ios.HorizontalCell--size-s:last-child::after {
+  min-width: 4px;
 }
 
 .HorizontalCell--size-s:first-child,
