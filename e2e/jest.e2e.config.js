@@ -3,17 +3,8 @@ const chalk = require('chalk');
 const { VKUI_PACKAGE } = require('../shared');
 const { canRunTests, useDocker } = require('./detectEnv');
 
-// const swcConfig = JSON.parse(
-//   fs.readFileSync(path.join(__dirname, `../${VKUI_PACKAGE.PATHS.ROOT_DIR}/package.swcrc`), 'utf-8'),
-// );
-// swcConfig.exclude = [];
-// swcConfig.jsc.experimental.plugins = [];
-
 const BROWSER = process.env.BROWSER ?? 'chromium';
 const PLATFORM = process.env.PLATFORM ?? 'vkcom';
-
-process.env.BABEL_KEEP_CSS = '1';
-process.env.BABEL_USED_BY_WEBPACK = '1';
 
 const vkcomBrowserMap = {
   firefox: 'Desktop Firefox',

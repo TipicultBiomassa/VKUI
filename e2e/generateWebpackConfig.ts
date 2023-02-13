@@ -1,16 +1,10 @@
 import * as path from 'path';
-import * as fs from 'fs';
 import { promisify } from 'util';
 import cbGlob from 'glob';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { generateScopedName, VKUI_PACKAGE } from '../shared';
 import webpackCommonConfig from '../webpack.common.config';
-
-const swcConfig = JSON.parse(
-  fs.readFileSync(path.join(__dirname, `../${VKUI_PACKAGE.PATHS.ROOT_DIR}/package.swcrc`), 'utf-8'),
-);
-swcConfig.exclude = [];
 
 const glob = promisify(cbGlob);
 
@@ -63,10 +57,7 @@ export async function generateWebpackConfig() {
         {
           test: /\.[jt]sx?$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'swc-loader',
-            options: swcConfig,
-          },
+          use: 'swc-loader',
         },
         {
           test: /\.css$/i,
