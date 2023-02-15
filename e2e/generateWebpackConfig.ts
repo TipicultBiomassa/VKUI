@@ -57,7 +57,16 @@ export async function generateWebpackConfig() {
         {
           test: /\.[jt]sx?$/,
           exclude: /node_modules/,
-          use: 'swc-loader',
+          use: {
+            loader: 'swc-loader',
+            options: {
+              jsc: {
+                experimental: {
+                  plugins: [['swc-plugin-coverage-instrument', {}]],
+                },
+              },
+            },
+          },
         },
         {
           test: /\.css$/i,
