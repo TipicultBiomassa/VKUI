@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Icon24UserAddOutline } from '@vkontakte/icons';
-import { describeScreenshotFuzz } from '../../testing/e2e/utils';
+import { describeScreenshotFuzz } from '../../testing/e2e';
 import { Avatar } from '../Avatar/Avatar';
 import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
 import { Button } from '../Button/Button';
@@ -55,7 +55,11 @@ describe('RichCell', () => {
       before: [<Avatar size={48} key="48" />],
       children: ['Михаил Лихачев'],
       caption: ['Команда ВКонтакте, Санкт-Петербург'],
-      after: [<Icon24UserAddOutline key="icon" />],
+      after: [
+        <RichCell.Icon key="icon">
+          <Icon24UserAddOutline />
+        </RichCell.Icon>,
+      ],
     },
   ]);
 });
